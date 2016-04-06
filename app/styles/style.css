@@ -1,3 +1,14 @@
 #ui {
-  border: 10px solid red;
+  background: url('../images/bg.jpg');
+  background: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  opacity: 9.0;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  -webkit-filter: blur(2px);
+  -o-filter: blur(2px);
+  filter: blur(2px);
 }

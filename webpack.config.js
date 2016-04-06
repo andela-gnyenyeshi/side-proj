@@ -27,7 +27,15 @@
         test: /\.css$/,
         exclude: /node_modules/,
         loader: 'style-loader!css-loader'
-      }]
+      }, {
+        test: /\.jpg$/,
+        exclude: /node_modules/,
+        loader: 'url-loader?=100000'
+      }, {
+        test: /\.less$/,
+        // exclude: /node_modules/,
+        loader: 'style!css!less'
+      }, { test: /\.(ttf|eot)$/, loader: 'file' }]
     }
   };
 })();
