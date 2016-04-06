@@ -7,10 +7,27 @@
   mainPath = path.resolve(__dirname, 'app', 'app.js');
 
   module.exports = {
-    entry: './app/scripts/trial.js',
+    entry: ['./app/scripts/app.jsx', './app/styles/style.css'],
     output: {
       filename: './public/js/bundle.js'
     },
-    watch: true
+    watch: true,
+
+    module: {
+      preLoaders: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }],
+      loaders: [{
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }, {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'style-loader!css-loader'
+      }]
+    }
   };
 })();

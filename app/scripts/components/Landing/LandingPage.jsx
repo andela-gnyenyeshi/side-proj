@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var React = require('react'),
-  ReactDom = require('reatc-dom');
+  ReactDom = require('react-dom');
 
   var Landing = React.createClass({
     render: function() {
