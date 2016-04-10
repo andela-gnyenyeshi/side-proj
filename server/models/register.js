@@ -5,6 +5,10 @@
   var Schema = mongoose.Schema;
 
   var registerSchema = new Schema({
+    name: {
+      type: String,
+      required: true
+    },
     age: {
       type: Number,
       required: true
