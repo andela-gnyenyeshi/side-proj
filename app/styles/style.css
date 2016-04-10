@@ -1,6 +1,12 @@
-#ui {
-  background: url('../images/bg.jpg');
-  background: cover;
+@font-face {
+    font-family: 'coffeeatmidnight';
+    src: url('../font/Coffee At Midnight Demo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+#back {
+  background: url('../images/trinitybg.jpeg');
+  background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -11,4 +17,24 @@
   -webkit-filter: blur(2px);
   -o-filter: blur(2px);
   filter: blur(2px);
+}
+
+#text {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+h5 {
+  color: #fff;
+  font-family: coffeeatmidnight;
+  font-size: 70px;
+}
+#startbtn {
+  position: fixed;
+  top:50%;
+}
+#startcontent {
+  position: fixed;
+  top: 30%
 }

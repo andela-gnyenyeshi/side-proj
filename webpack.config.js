@@ -1,10 +1,10 @@
-(function(){
+(function() {
   'use strict';
   var path = require('path'),
-  webpack = require('webpack'),
-  nodeModulesPath = path.resolve(__dirname, 'node_modules'),
-  buildPath = path.resolve(__dirname, 'public'),
-  mainPath = path.resolve(__dirname, 'app', 'app.js');
+    webpack = require('webpack'),
+    nodeModulesPath = path.resolve(__dirname, 'node_modules'),
+    buildPath = path.resolve(__dirname, 'public'),
+    mainPath = path.resolve(__dirname, 'app', 'app.js');
 
   module.exports = {
     entry: ['./app/scripts/app.jsx', './app/styles/style.css'],
@@ -28,14 +28,16 @@
         exclude: /node_modules/,
         loader: 'style-loader!css-loader'
       }, {
-        test: /\.jpg$/,
+        test: /\.(jpg|jpeg)$/,
         exclude: /node_modules/,
         loader: 'url-loader?=100000'
       }, {
         test: /\.less$/,
-        // exclude: /node_modules/,
         loader: 'style!css!less'
-      }, { test: /\.(ttf|eot)$/, loader: 'file' }]
+      }, {
+        test: /\.(ttf|eot)$/,
+        loader: 'url-loader'
+      }]
     }
   };
 })();
