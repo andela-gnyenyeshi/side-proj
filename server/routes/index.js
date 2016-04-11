@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
-module.exports = router;
+module.exports = function(app) {
+  require('./member')(app);
+  require('./register')(app);
+  app.get('*', function(req, res) {
+    res.sendFile('index.html', {
+      root: './public/'
+    });
+  });
+};

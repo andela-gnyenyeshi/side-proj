@@ -7,8 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config/config');
 
-var routes = require('./server/routes/index');
-var users = require('./server/routes/users');
+var routes = require('./server/routes/');
 var port = 5050;
 
 var app = express();
@@ -25,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
-app.use('/users', users);
+//routes
+routes(app);
 
 //connect to db
 mongoose.connect(config.db, function(err) {

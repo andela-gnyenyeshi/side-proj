@@ -5,6 +5,7 @@
 
   module.exports = {
     registerMember: function(req, res) {
+      console.log('Registering');
       var register = new Register();
       register.name = req.body.name;
       register.age = req.body.age;
@@ -15,6 +16,7 @@
       register.talent = req.body.talent;
 
       register.save(function(err, registered) {
+
         if (err) {
           return res.status(500).json({
             'error': 'Error registering member',
@@ -25,11 +27,16 @@
             'message': 'Successfully registered member',
             'registered': registered
           });
+        } else if (registered.length < 0 || !registered) {
+          return res.status(404).json({
+            'message': 'No registered members found'
+          });
         }
       });
     },
 
     findAll: function(req, res) {
+      console.log('Finding');
       Register.find(function(err, registerd) {
         if (err) {
           return res.status(500).json({
@@ -38,6 +45,10 @@
           });
         }
       });
+    },
+
+    gerty: function(req, res) {
+      console.log('Gertrude');
     }
   };
 })();
