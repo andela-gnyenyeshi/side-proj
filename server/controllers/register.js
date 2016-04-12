@@ -37,12 +37,15 @@
 
     findAll: function(req, res) {
       console.log('Finding');
-      Register.find(function(err, registerd) {
+      Register.find(function(err, registered) {
+        console.log('REGISTERED', registered);
         if (err) {
           return res.status(500).json({
             'error': 'Error finding registered users',
             err: err || err.errmessage
           });
+        } else {
+          return res.status(200).json(registered);
         }
       });
     },
