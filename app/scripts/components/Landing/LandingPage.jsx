@@ -4,6 +4,7 @@
   Block = require('essence-core').Block,
   Btn = require('essence-button'),
   AppBar = require('essence-appbar'),
+  Dialog = require('./Dialog.jsx'),
   ReactDom = require('react-dom');
 
   var Landing = React.createClass({
@@ -22,6 +23,7 @@
           <Block classes={'e-row'}>
             <Block id="startbtn" classes={'brick brick-12 e-h-center e-v-center'}>
               <Btn label={'Register'} ripple={false} type={'primary'} className={'raised'} />
+              <Dialog />
             </Block>
           </Block>
         </div>
