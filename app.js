@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes
 routes(app);
 
-//connect to db
+//Connect to db
 mongoose.connect(config.db, function(err) {
   if (err) {
     console.log('Error connecting to the DB');

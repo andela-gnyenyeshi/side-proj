@@ -15,21 +15,31 @@
       register.hobbies = req.body.hobbies;
       register.talent = req.body.talent;
 
-      register.save(function(err, registered) {
-
+      Register.find({
+        name: req.body.name
+      }, function(err, reg){
         if (err) {
           return res.status(500).json({
-            'error': 'Error registering member',
-            err: err || err.errmessage
+            err: err.errmessage || err
           });
-        } else if (registered) {
-          return res.status(200).json({
-            'message': 'Successfully registered member',
-            'registered': registered
+        }
+        else if (reg.length > 0) {
+          return res.status(409).json({
+            'message': 'Sorry, your name matches an existing member.'
           });
-        } else if (registered.length < 0 || !registered) {
-          return res.status(404).json({
-            'message': 'No registered members found'
+        } else if (reg.length === 0) {
+          register.save(function(err, registered) {
+            if (err) {
+              return res.status(500).json({
+                'error': 'Error registering member',
+                err: err || err.errmessage
+              });
+            } else if (registered) {
+              return res.status(200).json({
+                'message': 'Successfully registered member',
+                'registered': registered
+              });
+            }
           });
         }
       });
@@ -50,8 +60,5 @@
       });
     },
 
-    gerty: function(req, res) {
-      console.log('Gertrude');
-    }
   };
 })();
