@@ -5,30 +5,34 @@
   Btn = require('essence-button'),
   AppBar = require('essence-appbar'),
   Dialog = require('./Dialog.jsx'),
+  Ola = require('./test.jsx'),
   ReactDom = require('react-dom');
 
   var Landing = React.createClass({
-    render: function() {
-      return (
-        <div>
-        <div id ="back"></div>
-        <div id="text">
-          <Block classes={'e-row'}>
-            <Block id="startcontent" classes={'brick brick-12 e-h-center e-v-center'}>
-              <div>
-                <h5>Trinity Baptist Church</h5>
-              </div>
+    dialog: function() {
+      console.log('Lol');
+      console.log(Dialog);
+      console.log(Btn);
+      console.log(Ola);
+      <Dialog />
+    },
+    render: function(){
+
+        return (
+          <div>
+          <div id ="back"></div>
+          <div id="text">
+            <Block classes={'e-row'}>
+              <Block id="startcontent" classes={'brick brick-12 e-h-center e-v-center'}>
+                <div>
+                  <h5>Trinity Baptist Church</h5>
+                </div>
+              </Block>
             </Block>
-          </Block>
-          <Block classes={'e-row'}>
-            <Block id="startbtn" classes={'brick brick-12 e-h-center e-v-center'}>
-              <Btn label={'Register'} ripple={false} type={'primary'} className={'raised'} />
-              <Dialog />
-            </Block>
-          </Block>
+            <Dialog />
+          </div>
         </div>
-      </div>
-      );
+        );
     }
   });
   module.exports = Landing;
