@@ -7,7 +7,8 @@
   DialogHeader = require('essence-dialog').DialogHeader,
   Btn = require('essence-button'),
   DialogContent = require('essence-dialog').DialogContent,
-  DialogFooter = require('essence-dialog').DialogFooter;
+  DialogFooter = require('essence-dialog').DialogFooter,
+  Input = require('essence-input');
 
   module.exports = new React.createClass({
     getInitialState: function() {
@@ -49,7 +50,8 @@
              </DialogHeader>
 
              <DialogContent>
-              This is the Dialog content
+              <h2 id="reg"> Please enter code given by admin: </h2>
+              <Input classes={'has-success'} type={'text'} name={'label'} placeholder={'code'}/>
              </DialogContent>
 
              <DialogFooter>

@@ -5,19 +5,10 @@
   Btn = require('essence-button'),
   AppBar = require('essence-appbar'),
   Dialog = require('./Dialog.jsx'),
-  Ola = require('./test.jsx'),
   ReactDom = require('react-dom');
 
   var Landing = React.createClass({
-    dialog: function() {
-      console.log('Lol');
-      console.log(Dialog);
-      console.log(Btn);
-      console.log(Ola);
-      <Dialog />
-    },
     render: function(){
-
         return (
           <div>
           <div id ="back"></div>

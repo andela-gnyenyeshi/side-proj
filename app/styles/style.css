@@ -25,6 +25,12 @@
   width: 100vw;
 }
 
+#reg {
+  font-family: coffeeatmidnight;
+  position: center;
+  font: bold;
+}
+
 h5 {
   color: #fff;
   font-family: coffeeatmidnight;
