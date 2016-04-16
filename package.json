@@ -15,6 +15,7 @@
     "essence-input": "^1.0.12",
     "express": "~4.13.1",
     "file-loader": "^0.8.5",
+    "flux": "^2.1.1",
     "jade": "~1.11.0",
     "less": "^2.6.1",
     "mongoose": "^4.4.12",
