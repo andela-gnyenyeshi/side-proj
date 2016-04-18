@@ -17,6 +17,7 @@
     "file-loader": "^0.8.5",
     "flux": "^2.1.1",
     "jade": "~1.11.0",
+    "keymirror": "^0.1.1",
     "less": "^2.6.1",
     "mongoose": "^4.4.12",
     "morgan": "~1.6.1",
