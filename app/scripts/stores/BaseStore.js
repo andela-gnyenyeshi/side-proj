@@ -1,11 +1,21 @@
-(function(){
+(function() {
   'use strict';
   var EventEmitter = require('events').EventEmitter,
-  assign = require('object-assign');
+    assign = require('object-assign');
 
   var BaseStore = assign({}, EventEmitter.prototype, {
-    addChangeListener: function() {},
-    removeChangeListener: function() {},
-    emitChange: function() {}
+
+    addChangeListener: function(callback, event) {
+      this.on('change' || event, calback);
+    },
+
+    removeChangeListener: function(callback, event) {
+      this.removeListener('change' || event, callback);
+    },
+
+    emitChange: function(callback, event) {
+      this.emit('change' || event, callback);
+    }
+    
   });
 })();
