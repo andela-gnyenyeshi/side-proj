@@ -4,8 +4,8 @@
   BaseActions = require('./BaseActions');
 
   module.exports = {
-    registerMember: function() {
-      BaseActions.post('api/member', Costants.REG_MEMBER);
+    registerMember: function(data) {
+      BaseActions.post('api/member', data, Constants.REG_MEMBER);
     }
   };
 })();
