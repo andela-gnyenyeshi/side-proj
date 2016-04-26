@@ -34,6 +34,10 @@
       });
     },
 
+    findMember: function(req, res) {
+      
+    },
+
     deleteMember: function(req, res) {
       Member.findById(req.params.member_id, function(err, deleted) {
         if (err) {
@@ -50,6 +54,4 @@
       });
     }
   };
-
-
 })();
