@@ -8,23 +8,23 @@
   Btn = require('essence-button'),
   DialogContent = require('essence-dialog').DialogContent,
   DialogFooter = require('essence-dialog').DialogFooter,
-  Input = require('essence-input');
+  Input = require('essence-input'),
+  MemberAction = require('../../actions/MemberActions');
 
   module.exports = new React.createClass({
     getInitialState: function() {
       return {
-        open: ''
+        open: '',
+        name: ''
       };
     },
 
     showDialog: function() {
-      console.log('open dialog', this.state);
       var a = true;
       this.state.open = true;
       this.setState({
         open: a
       });
-      console.log('should open', this.state);
     },
 
     hideDialog: function() {
@@ -33,29 +33,32 @@
       });
     },
 
-    dialogOpened: function() {
-      console.log('Dialog open');
+    fetchInputValues: function(event) {
+      var value = event.target.value;
+      this.setState({
+        name: value
+      });
     },
 
-    dialogClosed: function() {
-      console.log('Dialog close');
-    },
+    // confirmAction: function() {
+    //   MemberAction.confirmMember(this.state.name);
+    // },
 
     render: function() {
       return (
         <div>
-          <Dialog dismissible={false} visible={this.state.open} onOpen={this.dialogOpened} onClose={this.dialogClosed}>
+          <Dialog dismissible={false} visible={this.state.open} >
             <DialogHeader className={'e-text-right'}>
               <Btn icon={'navigation-close'} onClick={this.hideDialog} className={'flat e-background-white'} />
              </DialogHeader>
 
              <DialogContent>
               <h2 id="reg"> Please enter code given by admin: </h2>
-              <Input classes={'has-success'} type={'text'} name={'label'} placeholder={'code'}/>
+              <Input classes={'has-success'} type={'text'} name={'label'} placeholder={'code'} onInput={this.fetchInputValues}/>
              </DialogContent>
 
              <DialogFooter>
-              <Btn type={'succes'} label={'OK'} className={'flat'} />
+              <Btn type={'succes'} label={'OK'} onClick={this.confirmAction} className={'flat'} />
               <Btn type={'info'} label={'Cancel'} onClick={this.hideDialog} className={'flat'} />
              </DialogFooter>
           </Dialog>

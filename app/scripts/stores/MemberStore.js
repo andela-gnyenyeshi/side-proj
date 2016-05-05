@@ -20,6 +20,7 @@
 
       setConfirm: function(member) {
         this.confirmMember = member;
+        console.log('store', member);
         this.emitChange('emit');
       },
 
