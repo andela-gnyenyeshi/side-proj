@@ -35,7 +35,22 @@
     },
 
     findMember: function(req, res) {
-      
+      Member.find({name: req.params.name}, function(err, member) {
+        if (err) {
+          return res.status(500).json({
+            err: err || err.errmessage
+          });
+        }
+        if (member.length > 0) {
+          return res.status(200).json({
+            message: 'Member of TBC'
+          });
+        } else if (member.length === 0) {
+          return res.status(404).json({
+            message: 'Sorry, not member of TBC'
+          });
+        }
+      });
     },
 
     deleteMember: function(req, res) {
